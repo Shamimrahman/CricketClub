@@ -1,0 +1,89 @@
+<?php
+include_once("config.php");
+//fetching data in descending order (lastest entry first)
+$result = "SELECT S.Name_Of_The_club,S.Date_Of_Establishment,S.House_No,S.Location,S.Street,S.Thana,S.District,S.Postcode,S.President_Name
+FROM clubregistrationform S";
+
+$result = mysqli_query($conn, $result);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>View Player Contact Information</title>
+<style>
+<style type="text/css">
+    body {
+      font-size: 15px;
+      color:#F0F8FF;  
+      
+      font-family: "segoe-ui", "open-sans", tahoma, arial;
+      padding: 0;
+      margin: 0;
+    }
+    
+    table, th, td{
+border: 1px solid black;
+border-collapse: collapse;
+}
+
+    h1 {
+      margin: 25px auto 0;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 17px;
+    }
+
+    table td {
+      transition: all .5s;
+    }
+    
+    
+
+   
+  </style>
+</style>
+</head>
+<body>
+<h1>Club Registration Information</h1>
+<hr>
+<table>
+
+	<tr>
+<th>Name Of The Club</th>
+<th>Date Of Establishment</th>
+<th>House No</th>
+<th>Location</th>
+<th>Street</th>
+<th>Thana</th>
+<th>District</th>
+<th>Postcode</th>
+<th>President Name</th>
+
+
+
+</tr>
+<?php
+while($res= mysqli_fetch_array($result)) {
+?>
+<tr>
+<td><?php echo $res['Name_Of_The_club'];?></td>
+<td><?php echo $res['Date_Of_Establishment'];?></td>
+<td><?php echo $res['House_No'];?></td>
+<td><?php echo $res['Location'];?></td>
+<td><?php echo $res['Street'];?></td>
+<td><?php echo $res['Thana'];?></td>
+<td><?php echo $res['District'];?></td>
+<td><?php echo $res['Postcode'];?></td>
+<td><?php echo $res['President_Name'];?></td>
+
+
+</tr>
+<?php
+}
+?>
+</table>
+</hr>;
+
+<html>
+<body background="https://img00.deviantart.net/8e6e/i/2006/297/0/a/green_background_by_l0rdn1k0n.jpg"></body>
+</html>
